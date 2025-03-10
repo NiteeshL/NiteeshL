@@ -1,6 +1,6 @@
 <code>hi, i'm Niteesh.</code><br>
 <code>pre-final year university student</code><br><br>
-<code>i am a developer with interests in competitive programming, open sourcing, artificial intelligence, and machine learning.</code><br>
+<code>i am a developer with interests in competitive programming, open sourcing, artificial intelligence and machine learning.</code><br>
 
 ![](https://komarev.com/ghpvc/?username=NiteeshL&base=0&color=ED8796)<br>
 
