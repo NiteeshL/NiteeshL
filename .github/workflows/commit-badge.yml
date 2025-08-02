@@ -2,13 +2,16 @@ name: Generate Total Commit Badge
 
 on:
   schedule:
-    - cron: '0 0 * * 0' # Every Sunday
+    - cron: '0 0 * * 0'  # Every Sunday
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
       - name: Count commits
         uses: actions/github-script@v7
         id: commits
@@ -22,13 +25,15 @@ jobs:
 
             let total = 0;
             for (const repo of allRepos) {
-              const commits = await github.rest.repos.getContributorsStats({
-                owner: username,
-                repo: repo.name,
-              });
-              const me = commits.data.find(user => user.author?.login === username);
-              if (me) {
-                total += me.total;
+              try {
+                const stats = await github.rest.repos.getContributorsStats({
+                  owner: username,
+                  repo: repo.name,
+                });
+                const me = stats.data?.find(user => user.author?.login === username);
+                if (me) total += me.total;
+              } catch (e) {
+                console.log(`Skipping ${repo.name}: ${e.message}`);
               }
             }
 
@@ -44,8 +49,12 @@ jobs:
           style: flat
           file: commits-badge.svg
 
-      - name: Upload badge
-        uses: actions/upload-artifact@v4
-        with:
-          name: commit-badge
-          path: commits-badge.svg
+      - name: Commit badge to repo
+        run: |
+          mkdir -p badges
+          mv commits-badge.svg badges/
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add badges/commits-badge.svg
+          git commit -m "Update commit badge" || echo "No changes to commit"
+          git push
