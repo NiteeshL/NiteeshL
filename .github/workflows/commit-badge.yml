@@ -41,13 +41,13 @@ jobs:
             return total;
 
       - name: Generate badge
-        uses: jaywcjlove/github-action-badge@main
+        uses: jaywcjlove/create-badge@main
         with:
           label: Total Commits
           message: ${{ steps.commits.outputs.result }}
           color: green
           style: flat
-          file: commits-badge.svg
+          path: commits-badge.svg
 
       - name: Commit badge to repo
         run: |
