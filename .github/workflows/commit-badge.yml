@@ -24,7 +24,7 @@ jobs:
             const username = 'NiteeshL';
             const repos = await github.paginate(github.rest.repos.listForAuthenticatedUser, {
               visibility: 'all',
-              affiliation: 'owner',
+              affiliation: 'owner,collaborator',
               per_page: 100,
             });
       
