@@ -3,8 +3,6 @@
 <code>i am a developer with interests in competitive programming, open sourcing and machine learning.</code><br>
 
 ![](https://komarev.com/ghpvc/?username=NiteeshL&base=0&color=ED8796)
-![Total Commits](https://img.shields.io/endpoint?url=https://niteeshl.github.io/NiteeshL/badges/commits-badge.json&color=348888)
-
 
 
 ---
