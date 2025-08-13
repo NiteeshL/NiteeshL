@@ -1,7 +1,6 @@
 <code>hi, i'm Niteesh.</code><br>
 <code>final year university student</code><br><br>
 <code>i am a developer with interests in competitive programming, open sourcing and machine learning</code><br>
-<code>i lead with a strong sense of responsibility—for both my work and my team—and can seamlessly adapt to any technology stack.</code><br>
 
 ![](https://komarev.com/ghpvc/?username=NiteeshL&base=0&color=ED8796)
 
